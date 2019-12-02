@@ -1,27 +1,13 @@
 defmodule DayOneTest do
   use ExUnit.Case
 
-  test "case 1" do
-    mass = 12
-    required_fuel = 2
-    assert required_fuel == DayOne.calculate_fuel(mass)
-  end
+  describe "part 1" do
+    test "test simple calculation of fuel" do
+      dataset = [{12, 2}, {14, 2}, {1969, 654}, {100_756, 33583}]
 
-  test "case 2" do
-    mass = 14
-    required_fuel = 2
-    assert required_fuel == DayOne.calculate_fuel(mass)
-  end
-
-  test "case 3" do
-    mass = 1969
-    required_fuel = 654
-    assert required_fuel == DayOne.calculate_fuel(mass)
-  end
-
-  test "case 4" do
-    mass = 100756
-    required_fuel = 33583
-    assert required_fuel == DayOne.calculate_fuel(mass)
+      for {mass, required_fuel} <- dataset do
+        assert required_fuel == DayOne.calculate_fuel(mass)
+      end
+    end
   end
 end
